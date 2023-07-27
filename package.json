@@ -1,0 +1,21 @@
+{
+	"name": "static-site",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+	  "test": "jest"
+	},
+	"author": "Aaron Lam",
+	"github": "https://github.com/alam2tg",
+	"linkedin": "https://www.linkedin.com/in/lam-aaron2/",
+	"dependencies": {
+	  "inquirer": "^8.2.5"
+
+	},
+	"keywords": [],
+	"devDependencies": {
+		"jest": "^24.9.0"
+	},
+	"description": ""
+ }
+ 
