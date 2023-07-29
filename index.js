@@ -45,16 +45,6 @@ const questions = [
 	}
 ]
 
-
-function writeToFile(fileName, data) {
-	return fs.writeFileSync(path.join(process.cwd(), fileName), data, function(err) {
-		if (err) {
-			return console.log(err)
-		}
-		console.log(answers)
-	})
-}
-
 async function init() {
 	inquirer.prompt(questions)
 		.then((answers) => {
@@ -75,7 +65,7 @@ async function init() {
 			
 			svg.setShape(userShape.render())
 
-			writeToFile("./generatedLogo/logo.svg", svg.render())
+			fs.writeFileSync("./generatedLogo/logo.svg", svg.render())
 			
 			console.log(answers)
 			})
