@@ -50,7 +50,9 @@ Javascript, Inquirer, Jest and the following sources are the documentation I use
 N/A
 
 ## Tests
-Jest.js methods - expect().toEqual() method.
+Jest.js methods
+expect().toEqual()
+[Test Code](./images/test.png)
 
 ## Questions
 Please send your questions [here](mailto:aaronlamfinance@gmail.com)
