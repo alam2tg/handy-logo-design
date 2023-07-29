@@ -35,9 +35,9 @@ Then in the CLI, enter npm install. This will add the required modules. In the I
 ## Usage
 Javascript, Inquirer, Jest and the following sources are the documentation I used to build this project. Use the documentation as a reference for creating your own shapes, text, and Jest.js tests. To run the program, enter "index.js" in the command-line and answer the prompts (questions).
 
-[SVG Shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-[SVG Text](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-[Jest Test](https://jestjs.io/docs/expect)
+* [SVG Shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
+* [SVG Text](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
+* [Jest Test](https://jestjs.io/docs/expect)
 
 
 
