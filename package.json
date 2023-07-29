@@ -10,7 +10,6 @@
 	"linkedin": "https://www.linkedin.com/in/lam-aaron2/",
 	"dependencies": {
 	  "inquirer": "^8.2.5"
-
 	},
 	"keywords": [],
 	"devDependencies": {

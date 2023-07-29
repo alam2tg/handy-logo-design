@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const {Circle, Square, Triangle} = require(".utils/shapes");
+const {Circle, Square, Triangle} = require('./utils/shapes');
 
 class SVG {
 	constructor() {
@@ -26,53 +26,61 @@ const questions = [
 		name: "text",
 		message: "Text: Enter up to 3 characters for logo",
 		validate: textInput => {
-			if (textInput.length > 3) {
-				console.log("Please enter a character count 3 or less")
-			} else {
+			if (textInput.length <= 3) {
 				return true;
-			}
-		}
+			}}
 	},{
 		type: "input",
-		name: "text-color",
+		name: "textColor",
 		message: "Color: Enter a color keyword (ex: 'Blue') or a 6 character hexidecimal code)"
 	}, {
 		type: "input",
-		name: "shape-color",
+		name: "shapeColor",
 		message: "Shape-Color: Enter a color keyword or a 6 character hexidecimal code"
 	},{
 		type: "list",
-		name: "shape",
+		name: "shapeType",
 		message: "Choose the shape for your logo from the following...",
 		choices: ["Circle", "Square", "Triangle"]
 	}
 ]
+console.log(questions)
 
-//writefile
 function writeToFile(fileName, data) {
 	return fs.writeFileSync(path.join(process.cwd(), fileName), data, function(err) {
 		if (err) {
 			return console.log(err)
 		}
+		console.log(answers)
 	})
 }
 
 async function init() {
-	const svgFileName = "./generatedLogo/logo.svg"
-	let svg = '';
+	let svgFileName = "./generatedLogo/logo.svg"
+	const answers = await inquirer.prompt(questions)
+		.then((answers) => {
+			console.log(answers)
+			const svg = new Shape()
 
+			let userShape;
 
-	const answers = await inquirer.prompt(questions);
+			if(userShapeType === "Square") {
+				userShape = new Square(answers.text, answers.textColor);
+			}
+			else if (userShapeType === "Circle") {
+				userShape = new Circle(answers.text, answers.textColor);
+			}
+			else if (userShapeType === "Triangle") {
+				userShape = new Triangle(answers.text, answers.textColor);
+			}
 
-	//text input
-	let 
+			userShape.setColor(answers.shapeColor)
+			
+			svg.setShape(userShape.render())
 
-	//font-color input
-
-	//shape color input
-
-	//shape input
-
-	//writeToFile(fileName, data)
+			writeToFile(svgFileName, svg.render())
+			
+			})
 
 }
+init();
