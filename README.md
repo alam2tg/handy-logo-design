@@ -52,7 +52,7 @@ N/A
 ## Tests
 Jest.js methods
 expect().toEqual()
-[Test Code](./images/test.png)
+![Test Code](./images/test.png)
 
 ## Questions
 Please send your questions [here](mailto:aaronlamfinance@gmail.com)
