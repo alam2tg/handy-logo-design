@@ -33,7 +33,7 @@ async function init() {
 		.then((answers) => {
 			const svg = new Shape()
 			let userShape;
-
+			//add text and textColor parameters for each shape with user answer
 			if(answers.shapeType === "Square") {
 				userShape = new Square(answers.text, answers.textColor);
 			}
@@ -44,8 +44,10 @@ async function init() {
 				userShape = new Triangle(answers.text, answers.textColor);
 			}
 
+			//set shapeColor with user answer
 			userShape.setColor(answers.shapeColor)
 			
+			//set parameter for 'const svg = new Shape(userShape)' to add values to 
 			svg.setShape(userShape.render())
 
 			fs.writeFileSync("./generatedLogo/logo.svg", svg.render())
