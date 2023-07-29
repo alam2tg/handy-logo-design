@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const {Circle, Square, Triangle} = require('./utils/shapes');
+const {Shape, Circle, Square, Triangle} = require('./lib/shapes');
 
 class SVG {
 	constructor() {
@@ -32,7 +32,7 @@ const questions = [
 	},{
 		type: "input",
 		name: "textColor",
-		message: "Color: Enter a color keyword (ex: 'Blue') or a 6 character hexidecimal code)"
+		message: "Text-Color: Enter a color keyword (ex: 'Blue') or a 6 character hexidecimal code)"
 	}, {
 		type: "input",
 		name: "shapeColor",
@@ -44,7 +44,7 @@ const questions = [
 		choices: ["Circle", "Square", "Triangle"]
 	}
 ]
-console.log(questions)
+
 
 function writeToFile(fileName, data) {
 	return fs.writeFileSync(path.join(process.cwd(), fileName), data, function(err) {
@@ -56,21 +56,18 @@ function writeToFile(fileName, data) {
 }
 
 async function init() {
-	let svgFileName = "./generatedLogo/logo.svg"
-	const answers = await inquirer.prompt(questions)
+	inquirer.prompt(questions)
 		.then((answers) => {
-			console.log(answers)
 			const svg = new Shape()
-
 			let userShape;
 
-			if(userShapeType === "Square") {
+			if(answers.shapeType === "Square") {
 				userShape = new Square(answers.text, answers.textColor);
 			}
-			else if (userShapeType === "Circle") {
+			else if (answers.shapeType === "Circle") {
 				userShape = new Circle(answers.text, answers.textColor);
 			}
-			else if (userShapeType === "Triangle") {
+			else if (answers.shapeType === "Triangle") {
 				userShape = new Triangle(answers.text, answers.textColor);
 			}
 
@@ -78,8 +75,9 @@ async function init() {
 			
 			svg.setShape(userShape.render())
 
-			writeToFile(svgFileName, svg.render())
+			writeToFile("./generatedLogo/logo.svg", svg.render())
 			
+			console.log(answers)
 			})
 
 }

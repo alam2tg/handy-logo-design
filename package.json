@@ -1,20 +1,16 @@
 {
 	"name": "static-site",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "shapes.js",
 	"scripts": {
-	  "test": "jest"
+		"test": "jest"
 	},
 	"author": "Aaron Lam",
 	"github": "https://github.com/alam2tg",
 	"linkedin": "https://www.linkedin.com/in/lam-aaron2/",
 	"dependencies": {
-	  "inquirer": "^8.2.5"
+		"inquirer": "^8.2.5",
+		"jest": "^29.6.2"
 	},
-	"keywords": [],
-	"devDependencies": {
-		"jest": "^24.9.0"
-	},
-	"description": ""
- }
- 
+	"keywords": []
+}
